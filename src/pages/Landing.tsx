@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Cloud, Zap, Menu, X } from "lucide-react";
 
 const LandingPage = () => {
@@ -54,14 +55,100 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <div className="relative max-w-6xl mx-auto mt-8 md:mt-12 px-4">
-        <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-10 md:p-16 relative overflow-hidden">
-          {/* Cloud Decorations - Responsive sizes */}
-          <div className="absolute top-0 left-0 w-24 md:w-32 h-24 md:h-32 bg-white rounded-full -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute top-0 right-0 w-32 md:w-40 h-32 md:h-40 bg-white rounded-full translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-1/4 w-20 md:w-24 h-20 md:h-24 bg-white rounded-full translate-y-1/2" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          whileHover={{
+            boxShadow: "0 0 30px rgba(255,255,255,0.5)",
+            transition: { duration: 0.3 },
+          }}
+          transition={{ duration: 0.8 }}
+          className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-10 md:p-16 relative overflow-hidden"
+        >
+          {/* Animated Circles */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial="initial"
+            whileHover="hover"
+          >
+            {/* Top Left Circle */}
+            <motion.div
+              className="absolute -left-8 -top-8 w-16 h-16 bg-yellow-400/30 rounded-full"
+              variants={{
+                initial: { x: 0, y: 0 },
+                hover: { x: 40, y: 40, transition: { duration: 0.8 } }
+              }}
+            />
+            {/* Top Right Circle */}
+            <motion.div
+              className="absolute -right-8 -top-8 w-24 h-24 bg-blue-400/30 rounded-full"
+              variants={{
+                initial: { x: 0, y: 0 },
+                hover: { x: -40, y: 40, transition: { duration: 0.8 } }
+              }}
+            />
+            {/* Bottom Left Circle */}
+            <motion.div
+              className="absolute -left-8 -bottom-8 w-20 h-20 bg-blue-400/30 rounded-full"
+              variants={{
+                initial: { x: 0, y: 0 },
+                hover: { x: 40, y: -40, transition: { duration: 0.8 } }
+              }}
+            />
+            {/* Bottom Right Circle */}
+            <motion.div
+              className="absolute -right-8 -bottom-8 w-16 h-16 bg-yellow-400/30 rounded-full"
+              variants={{
+                initial: { x: 0, y: 0 },
+                hover: { x: -40, y: -40, transition: { duration: 0.8 } }
+              }}
+            />
+            {/* Center Circle */}
+            <motion.div
+              className="absolute left-1/2 top-1/2 w-32 h-32 -translate-x-1/2 -translate-y-1/2 bg-blue-400/10 rounded-full"
+              variants={{
+                initial: { scale: 1 },
+                hover: { scale: 1.5, transition: { duration: 0.8 } }
+              }}
+            />
+          </motion.div>
+
+          {/* Cloud Decorations */}
+          <motion.div
+            animate={{ y: [-5, 5] }}
+            whileHover={{ scale: 1.1 }}
+            transition={{
+              y: { duration: 2, repeat: Infinity, repeatType: "reverse" },
+              scale: { duration: 0.2 },
+            }}
+            className="absolute top-0 left-0 w-24 md:w-32 h-24 md:h-32 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"
+          />
+          <motion.div
+            animate={{ y: [-8, 8] }}
+            whileHover={{ scale: 1.1 }}
+            transition={{
+              y: { duration: 2.5, repeat: Infinity, repeatType: "reverse" },
+              scale: { duration: 0.2 },
+            }}
+            className="absolute top-0 right-0 w-32 md:w-40 h-32 md:h-40 bg-white rounded-full translate-x-1/2 -translate-y-1/2"
+          />
+          <motion.div
+            animate={{ y: [-6, 6] }}
+            whileHover={{ scale: 1.1 }}
+            transition={{
+              y: { duration: 3, repeat: Infinity, repeatType: "reverse" },
+              scale: { duration: 0.2 },
+            }}
+            className="absolute bottom-0 left-1/4 w-20 md:w-24 h-20 md:h-24 bg-white rounded-full translate-y-1/2"
+          />
 
           {/* Content */}
-          <div className="relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="relative z-10"
+          >
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-black mb-2 md:mb-4">
               VAULTed
             </h1>
@@ -73,10 +160,18 @@ const LandingPage = () => {
             <div className="text-xs text-black/50 mt-2">
               built during ICP Hackathon, Bangkok 2024
             </div>
-          </div>
+          </motion.div>
 
-          {/* Decorative Hands - Hidden on mobile */}
-          <div className="hidden md:block absolute top-4 right-8">
+          {/* Decorative Hands */}
+          <motion.div
+            animate={{ rotate: [-5, 5] }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="hidden md:block absolute top-4 right-8"
+          >
             <svg
               className="w-16 md:w-24 h-16 md:h-24 text-gray-300"
               viewBox="0 0 24 24"
@@ -86,8 +181,16 @@ const LandingPage = () => {
                 d="M6.5 21C5.1 21 4 19.9 4 18.5V7.5C4 6.1 5.1 5 6.5 5C7.9 5 9 6.1 9 7.5V18.5C9 19.9 7.9 21 6.5 21Z"
               />
             </svg>
-          </div>
-          <div className="hidden md:block absolute bottom-4 left-8">
+          </motion.div>
+          <motion.div
+            animate={{ rotate: [5, -5] }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="hidden md:block absolute bottom-4 left-8"
+          >
             <svg
               className="w-16 md:w-24 h-16 md:h-24 text-gray-300"
               viewBox="0 0 24 24"
@@ -97,8 +200,8 @@ const LandingPage = () => {
                 d="M6.5 21C5.1 21 4 19.9 4 18.5V7.5C4 6.1 5.1 5 6.5 5C7.9 5 9 6.1 9 7.5V18.5C9 19.9 7.9 21 6.5 21Z"
               />
             </svg>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Section Header */}
