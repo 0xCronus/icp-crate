@@ -4,6 +4,7 @@ import { Cloud, Zap, Menu, X } from "lucide-react";
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   return (
     <div className="min-h-screen bg-blue-400">
@@ -76,7 +77,7 @@ const LandingPage = () => {
               className="absolute -left-8 -top-8 w-16 h-16 bg-yellow-400/30 rounded-full"
               variants={{
                 initial: { x: 0, y: 0 },
-                hover: { x: 40, y: 40, transition: { duration: 0.8 } }
+                hover: { x: 40, y: 40, transition: { duration: 0.8 } },
               }}
             />
             {/* Top Right Circle */}
@@ -84,7 +85,7 @@ const LandingPage = () => {
               className="absolute -right-8 -top-8 w-24 h-24 bg-blue-400/30 rounded-full"
               variants={{
                 initial: { x: 0, y: 0 },
-                hover: { x: -40, y: 40, transition: { duration: 0.8 } }
+                hover: { x: -40, y: 40, transition: { duration: 0.8 } },
               }}
             />
             {/* Bottom Left Circle */}
@@ -92,7 +93,7 @@ const LandingPage = () => {
               className="absolute -left-8 -bottom-8 w-20 h-20 bg-blue-400/30 rounded-full"
               variants={{
                 initial: { x: 0, y: 0 },
-                hover: { x: 40, y: -40, transition: { duration: 0.8 } }
+                hover: { x: 40, y: -40, transition: { duration: 0.8 } },
               }}
             />
             {/* Bottom Right Circle */}
@@ -100,7 +101,7 @@ const LandingPage = () => {
               className="absolute -right-8 -bottom-8 w-16 h-16 bg-yellow-400/30 rounded-full"
               variants={{
                 initial: { x: 0, y: 0 },
-                hover: { x: -40, y: -40, transition: { duration: 0.8 } }
+                hover: { x: -40, y: -40, transition: { duration: 0.8 } },
               }}
             />
             {/* Center Circle */}
@@ -108,7 +109,7 @@ const LandingPage = () => {
               className="absolute left-1/2 top-1/2 w-32 h-32 -translate-x-1/2 -translate-y-1/2 bg-blue-400/10 rounded-full"
               variants={{
                 initial: { scale: 1 },
-                hover: { scale: 1.5, transition: { duration: 0.8 } }
+                hover: { scale: 1.5, transition: { duration: 0.8 } },
               }}
             />
           </motion.div>
@@ -222,6 +223,29 @@ const LandingPage = () => {
           Explore Vaults
         </button>
       </div>
+
+      {/* Footer */}
+      <footer className="w-full bg-blue-500/10 backdrop-blur-sm mt-auto">
+        <div className="max-w-6xl mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex items-center space-x-2">
+              <Zap className="w-4 h-4 text-white" />
+              <span className="text-white text-sm">VAULTed</span>
+            </div>
+            <div className="text-white/70 text-sm">
+              © {currentYear} VAULTed. All rights reserved.
+            </div>
+            <div className="flex space-x-6">
+              <button className="text-white/70 hover:text-white text-sm transition-colors">
+                Terms
+              </button>
+              <button className="text-white/70 hover:text-white text-sm transition-colors">
+                Privacy
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
