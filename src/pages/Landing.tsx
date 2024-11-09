@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Cloud, Zap, Menu, X } from "lucide-react";
+import { Cloud, Zap, Menu, X, Vault } from "lucide-react";
+import VaultsGrid from "./Vaults";
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,14 +18,18 @@ const LandingPage = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <button className="px-4 py-2 bg-white rounded-full text-black font-medium">
+          <a
+            href="/"
+            className="px-4 py-2 bg-white rounded-full text-black font-medium"
+          >
             Home
-          </button>
-          <button className="text-black">About</button>
-          <button className="text-black">Docs</button>
-          <button className="px-6 py-2 bg-yellow-400 rounded-full text-black font-medium hover:bg-yellow-300 transition-colors">
+          </a>
+          <a
+            href="/vaults"
+            className="px-6 py-2 bg-yellow-400 rounded-full text-black font-medium hover:bg-yellow-300 transition-colors"
+          >
             Launch App
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -38,18 +43,18 @@ const LandingPage = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="absolute top-full right-0 mt-2 w-48 py-2 bg-white rounded-lg shadow-lg md:hidden">
-            <button className="w-full text-left px-4 py-2 text-black hover:bg-gray-100">
+            <a
+              href="/"
+              className="w-full text-left px-4 py-2 text-black hover:bg-gray-100"
+            >
               Home
-            </button>
-            <button className="w-full text-left px-4 py-2 text-black hover:bg-gray-100">
-              About
-            </button>
-            <button className="w-full text-left px-4 py-2 text-black hover:bg-gray-100">
-              Docs
-            </button>
-            <button className="w-full text-left px-4 py-2 text-yellow-500 hover:bg-gray-100">
+            </a>
+            <a
+              href="/vaults"
+              className="w-full text-left px-4 py-2 text-yellow-500 hover:bg-gray-100"
+            >
               Launch App
-            </button>
+            </a>
           </div>
         )}
       </nav>
@@ -219,10 +224,17 @@ const LandingPage = () => {
           they're often hidden behind complex UIs designed for whales. VAULTed
           is here to fix that.
         </p>
-        <button className="px-6 py-2 mt-8 bg-yellow-400 rounded-full text-black font-medium hover:bg-yellow-300 transition-colors">
-          Explore Vaults
-        </button>
+        <div className="flex justify-center">
+          <a
+            href="/vaults"
+            className="px-6 py-2 mt-8 bg-yellow-400 rounded-full text-black font-medium hover:bg-yellow-300 transition-colors"
+          >
+            Explore Vaults
+          </a>
+        </div>
       </div>
+
+      <VaultsGrid />
 
       {/* Footer */}
       <footer className="w-full bg-blue-500/10 backdrop-blur-sm mt-auto">
