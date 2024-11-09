@@ -63,14 +63,16 @@ const LandingPage = () => {
           {/* Content */}
           <div className="relative z-10">
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-black mb-2 md:mb-4">
-               VAULTed
+              VAULTed
             </h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-black/80 font-light">
               DeFi yields, designed
               <br className="hidden sm:block" />
               for everyone
             </h2>
-            <div className="text-xs text-black/50 mt-2">built during ICP Hackathon, Bangkok 2024</div>
+            <div className="text-xs text-black/50 mt-2">
+              built during ICP Hackathon, Bangkok 2024
+            </div>
           </div>
 
           {/* Decorative Hands - Hidden on mobile */}
@@ -97,6 +99,25 @@ const LandingPage = () => {
             </svg>
           </div>
         </div>
+      </div>
+
+      {/* Section Header */}
+      <div className="text-center mt-16 mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-wider">
+          THE EASY WAY
+          <br />
+          TO EARN
+          <br />
+          CRYPTO YIELD
+        </h2>
+        <p className="text-white/90 text-lg md:text-xl max-w-3xl mx-auto">
+          DeFi offers some of the best yields available on the planet, but
+          they're often hidden behind complex UIs designed for whales. VAULTed
+          is here to fix that.
+        </p>
+        <button className="px-6 py-2 mt-8 bg-yellow-400 rounded-full text-black font-medium hover:bg-yellow-300 transition-colors">
+          Explore Vaults
+        </button>
       </div>
     </div>
   );
